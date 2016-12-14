@@ -1,0 +1,90 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+I:\ECE353\Project_F_2016\src\Project.uvprojx
+Project File Date:  12/13/2016
+
+<h2>Output:</h2>
+Rebuild target 'Project'
+compiling main.c...
+compiling game_ui.c...
+compiling utils.c...
+compiling adc.c...
+compiling gpio_port.c...
+..\drivers\c\gpio_port.c(82): warning:  #188-D: enumerated type mixed with another type
+         return 0;
+..\drivers\c\gpio_port.c(426): warning:  #177-D: variable "gpioPort" was declared but never referenced
+    GPIOA_Type  *gpioPort;
+..\drivers\c\gpio_port.c: 2 warnings, 0 errors
+compiling i2c.c...
+compiling pc_buffer.c...
+compiling spi.c...
+compiling timers.c...
+..\drivers\c\timers.c(8): warning:  #177-D: function "verify_base_addr" was declared but never referenced
+  static bool verify_base_addr(uint32_t base_addr)
+..\drivers\c\timers.c: 1 warning, 0 errors
+compiling uart.c...
+..\drivers\c\uart.c(184): warning:  #188-D: enumerated type mixed with another type
+         return 0;
+..\drivers\c\uart.c: 1 warning, 0 errors
+compiling fonts.c...
+compiling interrupts.c...
+compiling ece353_images.c...
+compiling eeprom.c...
+compiling ft6x06.c...
+compiling launchpad_io.c...
+compiling lcd.c...
+compiling lcd_images.c...
+compiling ps2.c...
+compiling serial_debug.c...
+..\peripherals\c\serial_debug.c(165): warning:  #177-D: variable "uart_base" was declared but never referenced
+     uint32_t uart_base;
+..\peripherals\c\serial_debug.c(166): warning:  #177-D: variable "tx_buffer" was declared but never referenced
+     PC_Buffer *tx_buffer;
+..\peripherals\c\serial_debug.c: 2 warnings, 0 errors
+compiling spi_select.c...
+compiling wireless.c...
+..\peripherals\c\wireless.c(206): warning:  #177-D: variable "status" was declared but never referenced
+        uint8_t status; 
+..\peripherals\c\wireless.c: 1 warning, 0 errors
+compiling ws2812b_ice.c...
+compiling mcp23017.c...
+assembling startup_TM4C123.s...
+compiling system_TM4C123.c...
+linking...
+Program Size: Code=10136 RO-data=10668 RW-data=120 ZI-data=4128  
+".\obj\ece353_base_project.axf" - 0 Error(s), 7 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.4.1.1.pack
+                ARM::CMSIS:CORE:3.30.0
+                CMSIS (Cortex Microcontroller Software Interface Standard)
+   * Component: CORE Version: 3.30.0
+
+Package Vendor: Keil
+                http://www.keil.com/pack/Keil.TM4C_DFP.1.0.0.pack
+                Keil::Device:Startup:1.0.0
+                Texas Instruments Tiva C Series Device Support and Examples
+   * Component: Startup Version: 1.0.0
+
+<h2>Collection of Component include folders:</h2>
+  I:\ECE353\Project_F_2016\src\RTE
+  C:\AppV\mdk_510\ARM\PACK\ARM\CMSIS\4.1.1\CMSIS\Include
+  C:\AppV\mdk_510\ARM\PACK\Keil\TM4C_DFP\1.0.0\Device\Include\TM4C123
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:3.30.0
+      Source file:   CMSIS\UserCodeTemplates\ARM\ITM_Retarget.c
+
+   * Component: Keil::Device:Startup:1.0.0
+      Source file:   Device\Source\ARM\startup_TM4C123.s
+      Include file:  Device\Include\TM4C123\TM4C123.h
+      Source file:   Device\Source\system_TM4C123.c
+</pre>
+</body>
+</html>
