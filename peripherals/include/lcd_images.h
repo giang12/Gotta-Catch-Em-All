@@ -27,7 +27,6 @@
 extern const uint8_t imageBitmaps[];
 extern const uint8_t imageWidthPixels;
 extern const uint8_t imageHeightPixels;
-
 // Bitmap info for charmander
 extern const uint8_t charmanderBitmaps[];
 extern const uint8_t charmanderWidthPixels;
@@ -35,9 +34,17 @@ extern const uint8_t charmanderHeightPixels;
 // Bitmap info for squirtle
 extern const uint8_t squirtleBitmaps[];
 extern const uint8_t squirtleWidthPixels;
-extern const uint8_t squirtleHeightPixels;\
+extern const uint8_t squirtleHeightPixels;
 // Bitmap info for pikachu
 extern const uint8_t pikachuBitmaps[];
 extern const uint8_t pikachuWidthPixels;
 extern const uint8_t pikachuHeightPixels;
+// Bitmap info for sbox
+extern const uint8_t sboxBitmaps[];
+extern const uint8_t sboxWidthPixels;
+extern const uint8_t sboxHeightPixels;
+// Bitmap info for bull
+extern const uint8_t bullBitmaps[];
+extern const uint8_t bullWidthPixels;
+extern const uint8_t bullHeightPixels;
 #endif

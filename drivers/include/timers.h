@@ -16,7 +16,6 @@
 #define TIMER0B_TICKS 10000; //.2ms
 #define TIMER0B_PRESCALAR 50 ; //10ms
 
-static volatile bool ALERT_10MS;
 
 void timer0_init(void);
 

@@ -4,10 +4,12 @@
 #include <stdint.h>
 #include <stdbool.h>
 #include "TM4C123.h"
-
 #include "driver_defines.h"
-#include "ps2.h"
-#include "timers.h"
 
+#include "timers.h"
+#include "wireless_driver.h"
+
+#include "wireless.h"
+#include "ps2.h"
 
 #endif

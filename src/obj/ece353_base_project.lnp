@@ -11,6 +11,7 @@
 ".\obj\uart.o"
 ".\obj\fonts.o"
 ".\obj\interrupts.o"
+".\obj\wireless_driver.o"
 ".\obj\ece353_images.o"
 ".\obj\eeprom.o"
 ".\obj\ft6x06.o"

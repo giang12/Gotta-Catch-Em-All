@@ -3,6 +3,7 @@
 .\obj\main.o: C:\ProgramData\App-V\61A5EFCB-2A44-465D-90CC-A7A4A41DA0A8\D50B82DC-885B-4BF1-9479-31B1EC1F01B7\Root\ARM\ARMCC\bin\..\include\stdio.h
 .\obj\main.o: C:\ProgramData\App-V\61A5EFCB-2A44-465D-90CC-A7A4A41DA0A8\D50B82DC-885B-4BF1-9479-31B1EC1F01B7\Root\ARM\ARMCC\bin\..\include\stdint.h
 .\obj\main.o: C:\ProgramData\App-V\61A5EFCB-2A44-465D-90CC-A7A4A41DA0A8\D50B82DC-885B-4BF1-9479-31B1EC1F01B7\Root\ARM\ARMCC\bin\..\include\string.h
+.\obj\main.o: C:\ProgramData\App-V\61A5EFCB-2A44-465D-90CC-A7A4A41DA0A8\D50B82DC-885B-4BF1-9479-31B1EC1F01B7\Root\ARM\ARMCC\bin\..\include\limits.h
 .\obj\main.o: C:\AppV\mdk_510\ARM\PACK\Keil\TM4C_DFP\1.0.0\Device\Include\TM4C123\TM4C123.h
 .\obj\main.o: C:\AppV\mdk_510\ARM\PACK\Keil\TM4C_DFP\1.0.0\Device\Include\TM4C123\TM4C123GH6PM.h
 .\obj\main.o: C:\AppV\mdk_510\ARM\PACK\ARM\CMSIS\4.1.1\CMSIS\Include\core_cm4.h
@@ -23,10 +24,15 @@
 .\obj\main.o: ..\peripherals\include\lcd.h
 .\obj\main.o: ..\peripherals\include\lcd_images.h
 .\obj\main.o: ..\drivers\include\fonts.h
-.\obj\main.o: ..\drivers\include\interrupts.h
-.\obj\main.o: ..\peripherals\include\ps2.h
-.\obj\main.o: ..\drivers\include\adc.h
+.\obj\main.o: wireless_driver.h
 .\obj\main.o: ..\drivers\include\timers.h
+.\obj\main.o: ..\drivers\include\adc.h
+.\obj\main.o: ..\drivers\include\interrupts.h
+.\obj\main.o: ..\drivers\include\wireless_driver.h
+.\obj\main.o: ..\peripherals\include\spi_select.h
+.\obj\main.o: ..\peripherals\include\wireless.h
+.\obj\main.o: ..\drivers\include\spi.h
+.\obj\main.o: ..\peripherals\include\ps2.h
 .\obj\main.o: ..\peripherals\include\serial_debug.h
 .\obj\main.o: ..\drivers\include\pc_buffer.h
 .\obj\main.o: C:\ProgramData\App-V\61A5EFCB-2A44-465D-90CC-A7A4A41DA0A8\D50B82DC-885B-4BF1-9479-31B1EC1F01B7\Root\ARM\ARMCC\bin\..\include\stdlib.h

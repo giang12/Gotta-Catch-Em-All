@@ -3,6 +3,10 @@
 extern volatile uint16_t PS2_X_DATA;
 extern volatile uint16_t PS2_Y_DATA;
 
+extern volatile bool WIRELESS_RX_ALERT;
+extern volatile WIRELESS_INFO wireless_info;
+
+extern volatile bool ALERT_10MS;
 //*****************************************************************************
 // Use Timer0A as a 16-bit count down timer with interrupts. 
 // Used to start the analog to digital conversion on ADC0 every 1 milliseconds.
@@ -10,7 +14,8 @@ extern volatile uint16_t PS2_Y_DATA;
 //*****************************************************************************
 void TIMER0A_Handler(void)
 {
-
+	//printf("TIMER0A_Handler \n\r");
+	
   TIMER0->ICR |= TIMER_ICR_TATOCINT;
   
   // Start the ADC Conversion
@@ -25,6 +30,8 @@ void TIMER0A_Handler(void)
 //*****************************************************************************
 void TIMER0B_Handler(void)
 {
+	
+	//printf("TIMER0B_Handler \n\r");
 
   TIMER0->ICR |= TIMER_ICR_TBTOCINT;
   // Indicate 10ms has passed
@@ -39,7 +46,11 @@ void TIMER0B_Handler(void)
 //*****************************************************************************
 void TIMER1A_Handler(void){
 
-	printf("X: %d | Y: %d\n", PS2_X_DATA, PS2_Y_DATA);
+	printf("X: %d | Y: %d \n\r", PS2_X_DATA, PS2_Y_DATA);
+	
+	printf("TOTAL_PACKAGES_SENT: %d \n\rTOTAL_PACKAGES_DROPPED: %d \n\rTOTAL_PACKAGES_RECEIVED: %d \n\r",
+				wireless_info.TOTAL_PACKAGES_SENT, wireless_info.TOTAL_PACKAGES_DROPPED, wireless_info.TOTAL_PACKAGES_RECEIVED);
+	
 	TIMER1->ICR |= TIMER_ICR_TATOCINT;
 
 }
@@ -68,4 +79,22 @@ void ADC0SS2_Handler(void)
   ADC0->ISC |= ADC_ISC_IN2;
   
   set_alert_adc();
+}
+
+//*****************************************************************************
+// Wireless RX IRQ on
+//*****************************************************************************
+void GPIOD_Handler(void)
+{
+		uint32_t data;
+
+	GPIOA_Type  *gpioPort = (GPIOA_Type *) RF_IRQ_GPIO_BASE;
+	
+	wireless_get(false, &data);
+	
+	WIRELESS_RX_ALERT = true;
+
+	printf("received data: %d\n", data);
+	
+	gpioPort->ICR |= RF_IRQ_PIN;
 }

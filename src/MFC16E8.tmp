@@ -22,22 +22,10 @@
 
 #include "main.h"
 
-typedef enum {
-  PLAYER_1,
-  PLAYER_2
-} player;
-
 char individual_1[] = "Student 1: Giang Nguyen";
 char individual_2[] = "Student 2: Thomas Linden";
 char group[] = "Team Number: 27";
-uint8_t individual_1_id[]      = { 3,5,3,3,2};
-uint8_t individual_2_id[]  = { 3,5,3,3,3};
 
-player me = PLAYER_2;
-
-bool isWirelessGood = false;
-
-extern volatile bool ALERT_10MS;
 
 void DisableInterrupts(void)
 {
@@ -58,14 +46,15 @@ void initialize_hardware(void)
 {
 	init_serial_debug(true, true);
 	
-	wireless_init() ? printf("Wireless_init successessfull \n\r") 
-									: printf("Wireless_init failed \n\r");
+	if(!wireless_init())
+	{
+		printf("wireless_init failed...\n\r");
+	}
 	
-	
-	eeprom_init() ? printf("Eeprom_init successessfull \n\r") 
-								:	printf("Reprom_init failed \n\r");
-	
-
+	if(!eeprom_init())
+	{
+		printf("eeprom_init ERROR \r\n");
+	}
 		//LCD
 	lcd_config_gpio();
 	lcd_config_screen();
@@ -73,9 +62,11 @@ void initialize_hardware(void)
 	lp_io_init(); //Configures the GPIO pins connected to the Launchpad LEDs and 2 push buttons
 	ps2_initialize();//PS2 Joystick
 	
-	io_expander_init(IO_EXPANDER_I2C_BASE)	?	printf("io_expander_init successessfull \n\r") 
-																					:	printf("io_expander_init failed \n\r");
-	
+	if(!io_expander_init(IO_EXPANDER_I2C_BASE)){
+		printf("fuykk \n\r");
+	}else{
+		printf("io_expander_init ok \n\r");
+	}
 	
 	timer0_init();
 	timer1_init();
@@ -88,9 +79,8 @@ void initialize_hardware(void)
 int 
 main(void)
 {
-	wireless_com_status_t status;
-  int a = 0;
-  int b = INT_MAX;
+	
+  
   initialize_hardware();
 	
 	eeprom_read_team_info();
@@ -98,9 +88,6 @@ main(void)
 	
   while(1){
 		
-		if(ALERT_10MS){
-			ALERT_10MS = false;
-		}
 		if(get_alert_adc()){
 			clear_alert_adc();
 			if(sw_is_pressed(SW1_PIN)){
@@ -115,63 +102,27 @@ main(void)
 			eeprom_write_team_info(individual_1, individual_2, group);
 		}
 		
-		if(btn_is_pressed(BTN_LEFT_PIN) && isWirelessGood){
+		if(btn_is_pressed(BTN_LEFT_PIN)){
 			//When the SW2 pushbutton is pressed down, the application should write the following information to the EEPROM. 
 			printf("LEFT btn_is_pressed \r\n");
-			
-			printf("Sending: %d\n\r",a);
-          status = wireless_send(true, true, a);
-          if(status != NRF24L01_TX_SUCCESS)
-          {
-            printf("Error Message: %s\n\r",wireless_error_messages[status]);
-          }else{
-						printf("sent \n\r");
-					}
-          a++;
 		}
 		
 		if(btn_is_pressed(BTN_RIGHT_PIN)){
 			//When the SW2 pushbutton is pressed down, the application should write the following information to the EEPROM. 
 			printf("RIGHT btn_is_pressed \r\n");
-			
-			printf("Sending: %d\n\r",b);
-          status = wireless_send(true, true, b);
-          if(status != NRF24L01_TX_SUCCESS)
-          {
-            printf("Error Message: %s\n\r",wireless_error_messages[status]);
-          }else{
-						printf("sent \n\r");
-					}
-          b--;
 		}
 		
 		if(btn_is_pressed(BTN_UP_PIN)){
 			//When the SW2 pushbutton is pressed down, the application should write the following information to the EEPROM. 
 			printf("UP btn_is_pressed \r\n");
-			
-			if(wireless_configure_device(individual_1_id, individual_2_id)){
-				printf("Wireless Connect %d to %d successessfull \n\r", individual_1_id, individual_2_id);
-				isWirelessGood = true;
-			}else{
-				printf("Wireless Connect %d to %d failed \n\r", individual_1_id, individual_2_id);
-				isWirelessGood = false;
-			}
 		}
 		
 		if(btn_is_pressed(BTN_DOWN_PIN)){
 			//When the SW2 pushbutton is pressed down, the application should write the following information to the EEPROM. 
 			printf("DOWN btn_is_pressed \r\n");
-			
-			if(wireless_configure_device(individual_2_id, individual_1_id)){
-				printf("Wireless Connect %d to %d successessfull \n\r", individual_2_id, individual_1_id);
-				isWirelessGood = true;
-			}else{
-				printf("Wireless Connect %d to %d failed \n\r", individual_2_id, individual_1_id);
-				isWirelessGood = false;
-			}
 		}
 
-			
+		
 		
   };
 }

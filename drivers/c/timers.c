@@ -1,6 +1,6 @@
 #include "timers.h"
 
-static volatile bool ALERT_10MS = false;
+volatile bool ALERT_10MS = false;
 
 //*****************************************************************************
 // Verifies that the base address is a valid GPIO base address
@@ -133,7 +133,7 @@ void timer0_init(void)
 	NVIC_SetPriority(TIMER0A_IRQn, 2);
 	NVIC_EnableIRQ(TIMER0A_IRQn);
 		
-  NVIC_SetPriority(TIMER0B_IRQn, 2);
+  NVIC_SetPriority(TIMER0B_IRQn, 1);
 	NVIC_EnableIRQ(TIMER0B_IRQn);
 	
 	gp_timer->CTL |= TIMER_CTL_TAEN; //enable 0A

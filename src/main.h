@@ -25,6 +25,7 @@
 #include <stdio.h>
 #include <stdint.h>
 #include <string.h>
+#include <limits.h>
 
 #include "TM4C123.h"
 #include "driver_defines.h"
@@ -32,12 +33,11 @@
 #include "utils.h"
 #include "game_ui.h"
 
-
-#include "interrupts.h"
-#include "gpio_port.h"
+#include "wireless_driver.h"
 #include "timers.h"
+#include "gpio_port.h"
 #include "adc.h"
-
+#include "interrupts.h"
 
 #include "serial_debug.h"
 #include "launchpad_io.h"

@@ -12,7 +12,12 @@
 .\obj\interrupts.o: ..\drivers\include\driver_defines.h
 .\obj\interrupts.o: C:\ProgramData\App-V\61A5EFCB-2A44-465D-90CC-A7A4A41DA0A8\D50B82DC-885B-4BF1-9479-31B1EC1F01B7\Root\ARM\ARMCC\bin\..\include\stdio.h
 .\obj\interrupts.o: C:\ProgramData\App-V\61A5EFCB-2A44-465D-90CC-A7A4A41DA0A8\D50B82DC-885B-4BF1-9479-31B1EC1F01B7\Root\ARM\ARMCC\bin\..\include\errno.h
-.\obj\interrupts.o: ..\peripherals\include\ps2.h
-.\obj\interrupts.o: ..\drivers\include\gpio_port.h
-.\obj\interrupts.o: ..\drivers\include\adc.h
 .\obj\interrupts.o: ..\drivers\include\timers.h
+.\obj\interrupts.o: ..\drivers\include\wireless_driver.h
+.\obj\interrupts.o: C:\ProgramData\App-V\61A5EFCB-2A44-465D-90CC-A7A4A41DA0A8\D50B82DC-885B-4BF1-9479-31B1EC1F01B7\Root\ARM\ARMCC\bin\..\include\string.h
+.\obj\interrupts.o: ..\peripherals\include\spi_select.h
+.\obj\interrupts.o: ..\drivers\include\gpio_port.h
+.\obj\interrupts.o: ..\peripherals\include\wireless.h
+.\obj\interrupts.o: ..\drivers\include\spi.h
+.\obj\interrupts.o: ..\peripherals\include\ps2.h
+.\obj\interrupts.o: ..\drivers\include\adc.h

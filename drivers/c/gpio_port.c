@@ -424,10 +424,28 @@ bool  gpio_config_open_drain(uint32_t gpioBase, uint8_t pins)
 bool  gpio_config_falling_edge_irq(uint32_t gpioBase, uint8_t pins)
 {
   GPIOA_Type  *gpioPort;
-
+		
   // ADD CODE
   // Verify that the base address is a valid GPIO base address
   // using the verify_base_addr function provided above
-    
+  if(!verify_base_addr(gpioBase)) return false;
+	gpioPort = (GPIOA_Type *)gpioBase;  
+	
+	//1. Mask the corresponding port by clearing the IME field in the GPIOIM register.
+	gpioPort->IM &= ~pins; //disable irq
+	
+	//2. Configure the IS field in the GPIOIS register and the IBE field in the GPIOIBE register.
+	gpioPort->IS &= ~pins; //0 -> edge sensative, 1 -> level sensative
+	gpioPort->IBE &= ~pins; // 0 -> Interrupt generation is controlled by the GPIO Interrupt Event, 1 -> Both edges on the corresponding pin trigger an interrupt
+	
+	gpioPort->IEV &= ~pins; //A falling edge or a Low level on the corresponding pin triggers an interrupt.
+
+	//3. Clear the GPIORIS register.
+	gpioPort->RIS &= ~pins;
+	gpioPort->ICR |= pins;
+	
+	//4. Unmask the port by setting the IME field in the GPIOIM register.
+	gpioPort->IM |= pins; //disable irq
+
   return true;
 }
