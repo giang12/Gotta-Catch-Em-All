@@ -55,12 +55,11 @@ void welcome_screen(void)
                 );
 		
 		count = 0;
-		while(count < 9999999*3){
+		while(count < 9999999*1){
 			
 			count++;
 		}
 		
-		select_player_screen();
 }
 
 

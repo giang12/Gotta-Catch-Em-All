@@ -203,7 +203,7 @@ static __INLINE void wireless_tx_data_payload( uint32_t data)
 //*****************************************************************************
 static __INLINE void wireless_rx_data_payload( uint32_t *data)
 {
-	uint8_t status; 
+	//uint8_t status; 
 	uint8_t tx_data[5] = {NRF24L01_CMD_R_RX_PAYLOAD, 0x00, 0x00, 0x00, 0x00};		
 	uint8_t rx_data[5];
 	wireless_CSN_low();

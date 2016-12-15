@@ -11,7 +11,7 @@ bool rx_enable_interrupt(void)
 	gpio_config_enable_input(RF_IRQ_GPIO_BASE, RF_IRQ_PIN);
 	gpio_config_enable_pullup(RF_IRQ_GPIO_BASE, RF_IRQ_PIN);
 
-	gpio_config_falling_edge_irq(RF_IRQ_GPIO_BASE, RF_IRQ_PIN); ///wtffff
+	gpio_config_falling_edge_irq(RF_IRQ_GPIO_BASE, RF_IRQ_PIN);
 	
 	NVIC_SetPriority(GPIOD_IRQn, 0);
 	NVIC_EnableIRQ(GPIOD_IRQn);

@@ -32,6 +32,7 @@
 
 #include "utils.h"
 #include "game_ui_define.h"
+#include "pokemon.h"
 
 #include "wireless_driver.h"
 #include "timers.h"
@@ -49,5 +50,12 @@
 #include "mcp23017.h"
 #include "ft6x06.h"
 
+uint32_t defense_handler(Pokemon *pkm, Pokemon *opp, Attack *def, Attack *att);
+uint32_t attack_handler(Pokemon *pkm, Pokemon *opp, Attack *att, Attack *def);
 
+uint32_t setAttack(uint32_t max_valid_data);
+uint32_t setDefense(uint32_t max_valid_data);
+
+bool sendMyMove(uint32_t data);
+uint32_t getOpponentMove(uint32_t max_valid_data);
 #endif

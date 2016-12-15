@@ -47,10 +47,10 @@ void TIMER0B_Handler(void)
 //*****************************************************************************
 void TIMER1A_Handler(void){
 
-	printf("X: %d | Y: %d \n\r", PS2_X_DATA, PS2_Y_DATA);
+	//printf("X: %d | Y: %d \n\r", PS2_X_DATA, PS2_Y_DATA);
 	
-	printf("TOTAL_PACKAGES_SENT: %d \n\rTOTAL_PACKAGES_DROPPED: %d \n\rTOTAL_PACKAGES_RECEIVED: %d \n\r",
-				wireless_info.TOTAL_PACKAGES_SENT, wireless_info.TOTAL_PACKAGES_DROPPED, wireless_info.TOTAL_PACKAGES_RECEIVED);
+	//printf("TOTAL_PACKAGES_SENT: %d \n\rTOTAL_PACKAGES_DROPPED: %d \n\rTOTAL_PACKAGES_RECEIVED: %d \n\r",
+			//	wireless_info.TOTAL_PACKAGES_SENT, wireless_info.TOTAL_PACKAGES_DROPPED, wireless_info.TOTAL_PACKAGES_RECEIVED);
 	
 	TIMER1->ICR |= TIMER_ICR_TATOCINT;
 
@@ -87,15 +87,12 @@ void ADC0SS2_Handler(void)
 //*****************************************************************************
 void GPIOD_Handler(void)
 {
-		uint32_t data;
 
 	GPIOA_Type  *gpioPort = (GPIOA_Type *) RF_IRQ_GPIO_BASE;
 	
-	wireless_get(false, &data);
 	
 	WIRELESS_RX_ALERT = true;
 
-	printf("received data: %d\n", data);
-	
+
 	gpioPort->ICR |= RF_IRQ_PIN;
 }

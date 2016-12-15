@@ -14,6 +14,11 @@
 #include "launchpad_io.h"
 #include "mcp23017.h"
 
+void wait(int load);
+
+void DisableInterrupts(void);
+void EnableInterrupts(void);
+
 void draw_line(uint16_t x0, uint16_t xf, uint16_t y0, uint16_t yf, uint32_t pen_color);
 
 bool sw_is_pressed(uint8_t pin);

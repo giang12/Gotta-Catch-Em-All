@@ -432,7 +432,57 @@
             <File>
               <FileName>player_selection.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\player_selection.c</FilePath>
+              <FilePath>..\game_ui\c\player_selection.c</FilePath>
+            </File>
+            <File>
+              <FileName>attack_move.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\game_ui\c\attack_move.c</FilePath>
+            </File>
+            <File>
+              <FileName>battle_position.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\game_ui\c\battle_position.c</FilePath>
+            </File>
+            <File>
+              <FileName>choose_attack_move.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\game_ui\c\choose_attack_move.c</FilePath>
+            </File>
+            <File>
+              <FileName>choose_defense_move.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\game_ui\c\choose_defense_move.c</FilePath>
+            </File>
+            <File>
+              <FileName>defense_move.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\game_ui\c\defense_move.c</FilePath>
+            </File>
+            <File>
+              <FileName>fail_move.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\game_ui\c\fail_move.c</FilePath>
+            </File>
+            <File>
+              <FileName>game_over.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\game_ui\c\game_over.c</FilePath>
+            </File>
+            <File>
+              <FileName>growl_heal_move.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\game_ui\c\growl_heal_move.c</FilePath>
+            </File>
+            <File>
+              <FileName>pokemon.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\game_ui\c\pokemon.c</FilePath>
+            </File>
+            <File>
+              <FileName>waiting_room.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\game_ui\c\waiting_room.c</FilePath>
             </File>
           </Files>
         </Group>

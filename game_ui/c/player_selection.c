@@ -101,7 +101,5 @@ void select_player_screen(void){
 			
 		}
   
-
-	select_pokemon_screen();
 }
 

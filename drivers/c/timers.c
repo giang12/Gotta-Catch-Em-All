@@ -5,6 +5,7 @@ volatile bool ALERT_10MS = false;
 //*****************************************************************************
 // Verifies that the base address is a valid GPIO base address
 //*****************************************************************************
+/*
 static bool verify_base_addr(uint32_t base_addr)
 {
    switch( base_addr )
@@ -24,6 +25,7 @@ static bool verify_base_addr(uint32_t base_addr)
      }
    }
 }
+*/
 
 //*****************************************************************************
 // Returns the RCGC and PR masks for a given TIMER base address
@@ -200,7 +202,7 @@ void watchdog_init(void){
   while( (SYSCTL->RCGCWD  & wd_pr_mask) == 0) {};
 		
 	//wait for peripheral to become active
-	wd->CTL &= 0x3;
+	wd->CTL &= ~0x3;
 		
 	wd->LOAD = WATCHDOG_TICKS; 
 		

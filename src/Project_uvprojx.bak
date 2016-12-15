@@ -361,7 +361,7 @@
               <MiscControls>--debug</MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>C:\Keil_v5\ARM\Pack\ARM\CMSIS\3.20.4\CMSIS\Include;..\include;..\drivers\include;..\peripherals\include</IncludePath>
+              <IncludePath>C:\Keil_v5\ARM\Pack\ARM\CMSIS\3.20.4\CMSIS\Include;..\include;..\drivers\include;..\peripherals\include;..\game_ui\include</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -409,25 +409,30 @@
               <FileType>1</FileType>
               <FilePath>.\main.c</FilePath>
             </File>
-            <File>
-              <FileName>utils.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\utils.c</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>
           <GroupName>game_ui</GroupName>
           <Files>
             <File>
-              <FileName>game_ui.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\game_ui\c\game_ui.c</FilePath>
-            </File>
-            <File>
               <FileName>welcome_screen.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\game_ui\c\welcome_screen.c</FilePath>
+            </File>
+            <File>
+              <FileName>pokemon_selection.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\game_ui\c\pokemon_selection.c</FilePath>
+            </File>
+            <File>
+              <FileName>game_ui_define.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\game_ui\include\game_ui_define.h</FilePath>
+            </File>
+            <File>
+              <FileName>player_selection.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\game_ui\c\player_selection.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -483,6 +488,11 @@
               <FileName>wireless_driver.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\drivers\c\wireless_driver.c</FilePath>
+            </File>
+            <File>
+              <FileName>utils.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\drivers\c\utils.c</FilePath>
             </File>
           </Files>
         </Group>
