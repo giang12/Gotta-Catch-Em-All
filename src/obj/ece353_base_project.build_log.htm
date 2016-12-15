@@ -8,108 +8,53 @@ Project File Date:  12/15/2016
 
 <h2>Output:</h2>
 Build target 'Project'
-compiling player_selection.c...
-linking...
-Program Size: Code=15220 RO-data=11672 RW-data=224 ZI-data=4144  
-".\obj\ece353_base_project.axf" - 0 Error(s), 0 Warning(s).
-
-<h2>Software Packages used:</h2>
-
-Package Vendor: ARM
-                http://www.keil.com/pack/ARM.CMSIS.4.1.1.pack
-                ARM::CMSIS:CORE:3.30.0
-                CMSIS (Cortex Microcontroller Software Interface Standard)
-   * Component: CORE Version: 3.30.0
-
-Package Vendor: Keil
-                http://www.keil.com/pack/Keil.TM4C_DFP.1.0.0.pack
-                Keil::Device:Startup:1.0.0
-                Texas Instruments Tiva C Series Device Support and Examples
-   * Component: Startup Version: 1.0.0
-
-<h2>Collection of Component include folders:</h2>
-  I:\ECE353\Pokemon Battle\src\RTE
-  C:\AppV\mdk_510\ARM\PACK\ARM\CMSIS\4.1.1\CMSIS\Include
-  C:\AppV\mdk_510\ARM\PACK\Keil\TM4C_DFP\1.0.0\Device\Include\TM4C123
-
-<h2>Collection of Component Files used:</h2>
-
-   * Component: ARM::CMSIS:CORE:3.30.0
-      Source file:   CMSIS\UserCodeTemplates\ARM\ITM_Retarget.c
-
-   * Component: Keil::Device:Startup:1.0.0
-      Source file:   Device\Source\ARM\startup_TM4C123.s
-      Source file:   Device\Source\system_TM4C123.c
-      Include file:  Device\Include\TM4C123\TM4C123.h
-Load "I:\\ECE353\\Pokemon Battle\\src\\obj\\ece353_base_project.axf" 
-Connecting: Mode=JTAG, Speed=1000000Hz
-Erase Done.
-Programming Done.
-Verify OK.
-
-ng Done.
-Verify OK.
-eTemplates\ARM\ITM_Retarget.c
-
-   * Component: Keil::Device:Startup:1.0.0
-      Source file:   Device\Source\ARM\startup_TM4C123.s
-      Source file:   Device\Source\system_TM4C123.c
-      Include file:  Device\Include\TM4C123\TM4C123.h
-Load "I:\\ECE353\\Pokemon Battle\\src\\obj\\ece353_base_project.axf" 
-Connecting: Mode=JTAG, Speed=1000000Hz
-Erase Done.
-Programming Done.
-Verify OK.
-{"
-  bool sw_is_pressed(uint8_t pin);
-..\game_ui\c\welcome_screen.c(4): warning:  #12-D: parsing restarts here after previous syntax error
-  {
-..\game_ui\c\welcome_screen.c(63): warning:  #223-D: function "select_player_screen" declared implicitly
-                select_player_screen();
-..\game_ui\c\welcome_screen.c: 2 warnings, 1 error
+compiling main.c...
+compiling welcome_screen.c...
 compiling pokemon_selection.c...
-..\drivers\include\utils.h(19): error:  #130: expected a "{"
-  bool sw_is_pressed(uint8_t pin);
-..\game_ui\c\pokemon_selection.c(3): warning:  #12-D: parsing restarts here after previous syntax error
-  void select_pokemon_screen_init(void){
-..\game_ui\c\pokemon_selection.c(6): error:  #20: identifier "ME" is undefined
-        sprintf(msg_out, "Hey there %s, please choose your Pokemon!", character_names[ME]);
-..\game_ui\c\pokemon_selection.c(75): error:  #20: identifier "MY_POKEMON" is undefined
-        pokemon curr = MY_POKEMON;
-..\game_ui\c\pokemon_selection.c(77): warning:  #223-D: function "select_pokemon_screen_init" declared implicitly
-    select_pokemon_screen_init();
-..\game_ui\c\pokemon_selection.c(81): warning:  #223-D: function "btn_is_pressed" declared implicitly
-                        if(btn_is_pressed(BTN_DOWN_PIN)){
-..\game_ui\c\pokemon_selection.c(83): error:  #20: identifier "ME" is undefined
-                                printf("%s selected %s ... \n\r",( char *)character_names[ME], ( char *)pokemon_names[MY_POKEMON]);
-..\game_ui\c\pokemon_selection.c(101): error:  #20: identifier "ALERT_NEW_ADC" is undefined
-                        if(ALERT_NEW_ADC)
-..\game_ui\c\pokemon_selection.c(105): warning:  #223-D: function "debounce_ps_press_up" declared implicitly
-                                if(debounce_ps_press_up())
-..\game_ui\c\pokemon_selection.c(111): warning:  #223-D: function "debounce_ps_press_down" declared implicitly
-                                else if(debounce_ps_press_down())
-..\game_ui\c\pokemon_selection.c: 5 warnings, 5 errors
 compiling player_selection.c...
-..\drivers\include\utils.h(19): error:  #130: expected a "{"
-  bool sw_is_pressed(uint8_t pin);
-player_selection.c(3): warning:  #12-D: parsing restarts here after previous syntax error
-  void select_player_screen(void){
-player_selection.c(7): error:  #20: identifier "ME" is undefined
-        player curr = ME;
-player_selection.c(45): warning:  #223-D: function "btn_is_pressed" declared implicitly
-                        if(btn_is_pressed(BTN_DOWN_PIN)){
-player_selection.c(51): error:  #20: identifier "ALERT_NEW_ADC" is undefined
-                        if(ALERT_NEW_ADC)
-player_selection.c(105): warning:  #223-D: function "select_pokemon_screen" declared implicitly
-        select_pokemon_screen();
-player_selection.c: 3 warnings, 3 errors
+compiling attack_move.c...
+compiling battle_position.c...
+compiling choose_attack_move.c...
+compiling choose_defense_move.c...
+compiling defense_move.c...
+compiling fail_move.c...
+compiling game_over.c...
+compiling growl_heal_move.c...
+compiling pokemon.c...
+compiling waiting_room.c...
+compiling adc.c...
+compiling gpio_port.c...
+..\drivers\c\gpio_port.c(82): warning:  #188-D: enumerated type mixed with another type
+         return 0;
+..\drivers\c\gpio_port.c: 1 warning, 0 errors
+compiling i2c.c...
+compiling pc_buffer.c...
+compiling spi.c...
+compiling timers.c...
+compiling uart.c...
+..\drivers\c\uart.c(184): warning:  #188-D: enumerated type mixed with another type
+         return 0;
+..\drivers\c\uart.c: 1 warning, 0 errors
+compiling fonts.c...
+compiling interrupts.c...
+compiling wireless_driver.c...
 compiling utils.c...
-..\drivers\include\utils.h(19): error:  #130: expected a "{"
-  bool sw_is_pressed(uint8_t pin);
-..\drivers\c\utils.c(5): warning:  #12-D: parsing restarts here after previous syntax error
-  {
-..\drivers\c\utils.c: 1 warning, 1 error
-".\obj\ece353_base_project.axf" - 18 Error(s), 17 Warning(s).
+compiling ece353_images.c...
+compiling eeprom.c...
+compiling ft6x06.c...
+compiling launchpad_io.c...
+compiling lcd.c...
+compiling lcd_images.c...
+compiling ps2.c...
+compiling serial_debug.c...
+compiling spi_select.c...
+compiling wireless.c...
+compiling ws2812b_ice.c...
+compiling mcp23017.c...
+compiling system_TM4C123.c...
+linking...
+Program Size: Code=18716 RO-data=11572 RW-data=492 ZI-data=4188  
+".\obj\ece353_base_project.axf" - 0 Error(s), 2 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -136,7 +81,11 @@ Package Vendor: Keil
       Source file:   CMSIS\UserCodeTemplates\ARM\ITM_Retarget.c
 
    * Component: Keil::Device:Startup:1.0.0
+      Include file:  Device\Include\TM4C123\TM4C123.h
       Source file:   Device\Source\ARM\startup_TM4C123.s
       Source file:   Device\Source\system_TM4C123.c
-      Include file:  Device\Include\TM4C123\TM4C123.h
-Target not created
+Load "I:\\ECE353\\Pokemon Battle\\src\\obj\\ece353_base_project.axf" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Erase Done.
+Programming Done.
+Verify OK.

@@ -30,6 +30,7 @@
 .\obj\main.o: ..\peripherals\include\spi_select.h
 .\obj\main.o: ..\peripherals\include\wireless.h
 .\obj\main.o: ..\drivers\include\spi.h
+.\obj\main.o: ..\game_ui\include\pokemon.h
 .\obj\main.o: ..\drivers\include\timers.h
 .\obj\main.o: ..\drivers\include\interrupts.h
 .\obj\main.o: ..\peripherals\include\serial_debug.h

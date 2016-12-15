@@ -1,6 +1,31 @@
 #include "utils.h"
 
 
+
+//*****************************************************************************
+// Busy wait
+//*****************************************************************************
+void wait(int load)
+{
+  int i = load;
+  while(i >0)
+  {
+    i--;
+  }
+}
+void DisableInterrupts(void)
+{
+  __asm {
+         CPSID  I
+  }
+}
+void EnableInterrupts(void)
+{
+  __asm {
+	    CPSIE  I
+  }
+}
+
 void draw_line(uint16_t x0, uint16_t xf, uint16_t y0, uint16_t yf, uint32_t pen_color)
 {
 		uint32_t x,y;

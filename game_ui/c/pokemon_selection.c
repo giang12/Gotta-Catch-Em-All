@@ -17,7 +17,7 @@ void select_pokemon_screen_init(void){
   lcd_draw_image(
                   20,                 // X Pos
                   charmanderWidthPixels,   // Image Horizontal Width
-                  60,                 // Y Pos
+                  180,                 // Y Pos
                   charmanderHeightPixels,  // Image Vertical Height
                   charmanderBitmaps,       // Image
                   LCD_COLOR_RED,      // Foreground Color
@@ -35,59 +35,57 @@ void select_pokemon_screen_init(void){
 		lcd_draw_image(
                   20,                 // X Pos
                   pikachuWidthPixels,   // Image Horizontal Width
-                  180,                 // Y Pos
+                  60,                 // Y Pos
                   pikachuHeightPixels,  // Image Vertical Height
                   pikachuBitmaps,       // Image
                   LCD_COLOR_YELLOW,      // Foreground Color
                   LCD_COLOR_BLACK      // Background Color
                 );	
-
+								
+		
     lcd_print_string(
-									(char *) pokemon_names[Pikachu], 
+									(char *) pokemon_names[CHARMANDER], 
 									12,
-                  0,									
-									LCD_COLOR_YELLOW, 
+                  0, 									
+									LCD_COLOR_RED, 
 									LCD_COLOR_BLACK 
 								);
+    
     lcd_print_string(
-									(char *) pokemon_names[Squirtle], 
+									(char *) pokemon_names[SQUIRTLE], 
 									8,
                   0, 									
 									LCD_COLOR_BLUE, 
 									LCD_COLOR_BLACK 
 								);								
-    lcd_print_string(
-									(char *) pokemon_names[Charmander], 
+
+		lcd_print_string(
+									(char *) pokemon_names[PIKACHU],
 									4,
-                  0, 									
-									LCD_COLOR_RED, 
+                  0,									
+									LCD_COLOR_YELLOW, 
 									LCD_COLOR_BLACK 
 								);
-									
-			
-
 }
 
 void pikachu_i_choose_you(pokemon type)
 {
 				switch(type){
-					case Pikachu:
+					case CHARMANDER:
 						draw_line(0, 240, 110, 115, LCD_COLOR_BLACK);
 						draw_line(0, 240, 50, 55, LCD_COLOR_BLACK);
-						draw_line(20, 220, 170, 175, LCD_COLOR_YELLOW);
-
+						draw_line(20, 220, 170, 175, LCD_COLOR_RED);
 						break;
-					case Squirtle:
+					case SQUIRTLE:
 						draw_line(0, 240, 170, 175, LCD_COLOR_BLACK);
 						draw_line(0, 240, 50, 55, LCD_COLOR_BLACK);
 						draw_line(20, 220, 110, 115, LCD_COLOR_BLUE);
-
 						break;
-					case Charmander:
+					case PIKACHU:
 						draw_line(0, 240, 170, 175, LCD_COLOR_BLACK);
 						draw_line(0, 240, 110, 115, LCD_COLOR_BLACK);
-						draw_line(20, 220, 50, 55, LCD_COLOR_RED);
-
+						draw_line(20, 220, 50, 55, LCD_COLOR_YELLOW);
+					default:
 						break;
 				}
 	
@@ -106,6 +104,7 @@ void select_pokemon_screen(void)
 				printf("%s selected %s ... \n\r",( char *)character_names[ME], ( char *)pokemon_names[MY_POKEMON]);
 				//go to choose pokemon
 				selected = true;
+				//continue;
 			}
 			
 			if(ALERT_NEW_ADC)
