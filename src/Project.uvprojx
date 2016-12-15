@@ -361,7 +361,7 @@
               <MiscControls>--debug</MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>C:\Keil_v5\ARM\Pack\ARM\CMSIS\3.20.4\CMSIS\Include;..\include;..\drivers\include;..\peripherals\include</IncludePath>
+              <IncludePath>C:\Keil_v5\ARM\Pack\ARM\CMSIS\3.20.4\CMSIS\Include;..\include;..\drivers\include;..\peripherals\include;..\game_ui\include</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -420,14 +420,59 @@
           <GroupName>game_ui</GroupName>
           <Files>
             <File>
-              <FileName>game_ui.c</FileName>
+              <FileName>pokemon.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\game_ui\c\game_ui.c</FilePath>
+              <FilePath>.\pokemon.c</FilePath>
             </File>
             <File>
               <FileName>welcome_screen.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\game_ui\c\welcome_screen.c</FilePath>
+            </File>
+            <File>
+              <FileName>pokemon_selection.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\game_ui\c\pokemon_selection.c</FilePath>
+            </File>
+            <File>
+              <FileName>attack_move.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\attack_move.c</FilePath>
+            </File>
+            <File>
+              <FileName>battle_position.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\battle_position.c</FilePath>
+            </File>
+            <File>
+              <FileName>defense_move.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\defense_move.c</FilePath>
+            </File>
+            <File>
+              <FileName>fail_move.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\fail_move.c</FilePath>
+            </File>
+            <File>
+              <FileName>growl_heal_move.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\growl_heal_move.c</FilePath>
+            </File>
+            <File>
+              <FileName>game_over.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\game_over.c</FilePath>
+            </File>
+            <File>
+              <FileName>choose_attack_move.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\choose_attack_move.c</FilePath>
+            </File>
+            <File>
+              <FileName>choose_defense_move.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\choose_defense_move.c</FilePath>
             </File>
           </Files>
         </Group>

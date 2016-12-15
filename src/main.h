@@ -49,5 +49,13 @@
 #include "mcp23017.h"
 #include "ft6x06.h"
 
+#define DEF_HP 48 			// default hit points 
+#define DEF_BPOW 6      // default bite power
+#define DEF_SAPOW 10     // default special attack power
+#define DEF_RECOIL 2		// default recoil from special attack 
+#define DEF_GROWL 4			// default power increase from growl
+#define DEF_HEAL 8 			// default health increase from heal 
+
+
 
 #endif

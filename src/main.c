@@ -84,19 +84,122 @@ void initialize_hardware(void)
 
 //*****************************************************************************
 //*****************************************************************************
+int setPokeStruct(Pokemon* pkm);
+void init_nonch(Pokemon *pkm, Pokemon *opp, Attack *bite, Attack *obite, 
+	Attack *sa, Attack *osa);
+int attack_handler(Pokemon *pkm, Pokemon *opp, Attack *att, Attack *def) ;
+int defense_handler(Pokemon *pkm, Pokemon *opp, Attack *def, Attack *att); 
+char pika[] = P;
+char squirt[] = S; 
+char charm[] = C;
+int isTurn;
+Attack SA;                 // Specialty Attack
+Attack bite; 							 // Bite
+Attack OSA;								 // Opponent's special attack
+Attack obite; 						 // Opponent's bite attack 
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 int 
 main(void)
 {
 	wireless_com_status_t status;
   int a = 0;
   int b = INT_MAX;
+	int isGameEnd; 
+	int isPlayerFainted; 
+	int isOppFainted; 
+	int stat_sent, stat_rec; 
+	Pokemon pkm;
+  Pokemon opp; 
+  
+	Attack att;
+  Attack def; 
+  
+	att.charCode = GROWL; 
+	att.name = G;
+		
   initialize_hardware();
 	
 	eeprom_read_team_info();
 	
-	welcome_screen();
+	init_nonch(&pkm, &opp, &bite, &obite, &SA, &OSA);  
 	
-  while(1){
+	// welcome_screen();
+	
+	// selection_screen();
+	
+	// gets pkm charCode 
+	pkm.charCode = CHARMANDER;
+	
+	// waiting_room(); 
+	
+	// gets opp charCode
+	opp.charCode = SQUIRTLE;
+	
+	// Set up the structures of the pokemon
+	setPokeStruct(&pkm);
+  setPokeStruct(&opp);
+	
+	
+	// Turns are set, time to begin game 
+  while(!isGameEnd) {
+    // Set the pre turn vars 
+		att.charCode = -1;
+    def.charCode = -1;
+    stat_sent = -1; 
+    stat_rec = -1; 
+    // Update the LEDs
+		// update_LEDs(pkm.hp, opp.hp); 
+		if(isTurn){	
+	    choose_attack_move_screen(&pkm, &opp); 
+      while(att.charCode < 0) {
+			  // att.charCode = setAttack();  something to get the attack from the buttons
+			}				
+	    while(def.charCode < 0) {
+			  // def.charCode = getDefense(); something to get the defense from comm
+			}
+			// Send the info to the Attack Handler  
+			attack_handler(&pkm, &opp, &att, &def);
+		}
+		else {
+		  choose_defense_move_screen(&pkm, &opp);
+		  while(def.charCode < 0) {
+			  // def.charCode = setDefense(); something to get the defense from the buttons
+			}
+			while(att.charCode <0) {
+			  // att.charCode = getAttack(); something to get the attack from comm
+			}
+			// Send the info to the Defense Handler
+		  defense_handler(&pkm, &opp, &def, &att);
+		}
+		
+		// Between turns check to see if the game will continue 
+		if (pkm.hp <= 0) {
+		  isPlayerFainted = 1; 
+		}
+		while(stat_sent < 0) {
+		  // stat_sent = sendStat(isPlayerFainted); send opponent isPlayerFainted var
+		}
+		while(stat_rec < 0) {
+		  // stat_rec = recStat(&isOppFainted); get the opponent's isPlayerFainted var
+		}
+		if (isPlayerFainted == 1) {
+		  game_over_screen(&pkm, &opp, true);
+		}
+		if (isOppFainted == 1) {
+		  game_over_screen(&pkm, &opp, false); 
+		}
+		// Switch whose turn it is 
+		isTurn = !isTurn; 
+	}	
+
+	
+	
+  lcd_clear_screen(LCD_COLOR_BLACK );
+
+  choose_defense_move_screen(&pkm, &opp); 
+  
+	while(1){
 		
 		if(ALERT_10MS){
 			ALERT_10MS = false;
@@ -174,4 +277,92 @@ main(void)
 			
 		
   };
+}
+
+int attack_handler(Pokemon *pkm, Pokemon *opp, Attack *att, Attack *def) {
+  // If it's a non-damaging move, then we can just update the structs as necessary
+  if (att->charCode == GROWL) {
+    growl_heal_move_screen(pkm, opp, att, true);
+		bite.power = bite.power + DEF_GROWL; 
+    SA.power = SA.power + DEF_GROWL; 
+    return 0;
+  }
+  if (att->charCode == HEAL) {
+		growl_heal_move_screen(pkm, opp, att, true);
+    pkm->hp = pkm->hp + DEF_HEAL;
+    return 0; 
+  }
+  // If it's a damaging move, we need to see if the opponent counter-struck correctly. 
+	// If they correctly counterstruck, inflict half the attack on the attacker
+  if (att->charCode == def->charCode) { 
+    if (att->charCode == BITE) {
+			fail_move_screen(pkm, opp, att,true);
+      pkm->hp = pkm->hp - .5*bite.power;
+      return 0;
+    }
+    if (att->charCode == SPECIALTYATTACK) {
+      fail_move_screen(pkm, opp, att,true);
+			pkm->hp = pkm->hp - .5*SA.power; 
+      return 0; 
+    }
+  }
+	else{
+  // Otherwise we need to inflict the damage on the opponent -- 
+  // If it's just tackle, update local opp.hp
+    if (att->charCode == BITE) {
+			attack_move_screen(pkm, opp, att);
+      opp->hp = opp->hp - bite.power; 
+    }
+    // If it's the specialty attack, dock points of hp from your pokemon as well,  
+    // update local opp.hp
+    else {
+			attack_move_screen(pkm, opp, att);
+      opp->hp = opp->hp - SA.power; 
+      pkm->hp = pkm->hp - DEF_RECOIL;
+    }
+  }
+}
+
+int defense_handler(Pokemon *pkm, Pokemon *opp, Attack *def, Attack *att) {
+  // If it's a non-damaging move, then we can just update the structs as necessary
+  if (att->charCode == GROWL) {
+    growl_heal_move_screen(pkm, opp, att, false);
+		obite.power = obite.power + DEF_GROWL; 
+    OSA.power = OSA.power + DEF_GROWL; 
+    return 0;
+  }
+  if (att->charCode == HEAL) {
+		growl_heal_move_screen(pkm, opp, att, false);
+    opp->hp = opp->hp + DEF_HEAL;
+    return 0; 
+  }
+  // If it's a damaging move, we need to see if the opponent counter-struck correctly. 
+	// If they correctly counterstruck, inflict half the attack on the attacker
+  if (att->charCode == def->charCode) { 
+    if (att->charCode == BITE) {
+			fail_move_screen(pkm, opp, att, false);
+      opp->hp = opp->hp - .5*obite.power;
+      return 0;
+    }
+    if (att->charCode == SPECIALTYATTACK) {
+      fail_move_screen(pkm, opp, att, false);
+			opp->hp = opp->hp - .5*OSA.power; 
+      return 0; 
+    }
+  }
+	else{
+  // Otherwise we need to inflict the damage on the opponent -- 
+  // If it's just tackle, update local opp.hp
+    if (att->charCode == BITE) {
+			defense_move_screen(pkm, opp, att);
+      pkm->hp = pkm->hp - obite.power; 
+    }
+    // If it's the specialty attack, dock points of hp from your pokemon as well,  
+    // update local opp.hp
+    else {
+			defense_move_screen(pkm, opp, att);
+      pkm->hp = pkm->hp - OSA.power; 
+      opp->hp = opp->hp - DEF_RECOIL;
+    }
+  }
 }
