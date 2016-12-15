@@ -8,14 +8,23 @@
 
 #include "TM4C123.h"
 
+#include "ps2.h"
+#include "lcd.h"
 #include "eeprom.h"
 #include "launchpad_io.h"
 #include "mcp23017.h"
 
+void draw_line(uint16_t x0, uint16_t xf, uint16_t y0, uint16_t yf, uint32_t pen_color);
 
 bool sw_is_pressed(uint8_t pin);
 
 bool btn_is_pressed(uint8_t pin);
+
+bool debounce_ps_press_up(void);
+bool debounce_ps_press_down(void);
+bool debounce_ps_press_left(void);
+bool debounce_ps_press_right(void);
+
 
 void eeprom_write_team_info(char  me[], char  you[], char  groupNum[]);
 

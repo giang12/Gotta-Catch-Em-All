@@ -488,3 +488,4 @@ const uint8_t bullBitmaps []=
 // Bitmap sizes for bull
 const uint8_t bullWidthPixels = 15;
 const uint8_t bullHeightPixels = 7;
+

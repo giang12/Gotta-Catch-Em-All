@@ -1,63 +1,8 @@
 #include "game_ui_define.h"
 
-extern volatile player ME;
-extern volatile bool ALERT_NEW_ADC; //ADC flag
-
-void select_player_screen(void){
-	
-	bool playerSelected = false;
-	player curr = ME;
-	lcd_clear_screen(LCD_COLOR_BLACK );
-	
-	lcd_print_string(
-									"Choose Your Champion!", 
-									18,
-									20,
-									LCD_COLOR_RED, 
-									LCD_COLOR_BLACK 
-								);
-	 lcd_print_string(
-									"Ash", 
-									11,
-									90,
-									LCD_COLOR_RED, 
-									LCD_COLOR_BLACK 
-								); //located at 180,170
-    lcd_print_string(
-									"Brock", 
-									8, 
-									90,
-									LCD_COLOR_BLUE, 
-									LCD_COLOR_BLACK 
-		
-						);//located at 180,120
-						
-		
-		lcd_draw_image(
-                  180,                 // X Pos
-                  pikachuWidthPixels,   // Image Horizontal Width
-                  170,                 // Y Pos
-                  pikachuHeightPixels,  // Image Vertical Height
-                  pikachuBitmaps,       // Image
-                  LCD_COLOR_YELLOW,      // Foreground Color
-                  LCD_COLOR_BLACK      // Background Color
-                );
-								
-		while(!playerSelected){
-			if(ALERT_NEW_ADC){
-				
-				
-			}
-			
-		}
-  
-}
-
-
-
 void welcome_screen(void)
 {
-	/*
+	
 	uint32_t count; 
 
   // Reach infinite loop
@@ -114,9 +59,8 @@ void welcome_screen(void)
 			
 			count++;
 		}
-	*/
+		
 		select_player_screen();
-
 }
 
 

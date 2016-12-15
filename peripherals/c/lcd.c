@@ -83,7 +83,8 @@ __INLINE static void  lcd_write_data_u8 (uint8_t x)
 * Return:
 *  Nothing
 *******************************************************************************/ 
-__INLINE static void  lcd_write_data_u16(uint16_t y)
+//__INLINE static 
+	void  lcd_write_data_u16(uint16_t y)
 {
   // ADD CODE
   uint8_t DH = y>>8;      // Bits 15-8 of the pixel color

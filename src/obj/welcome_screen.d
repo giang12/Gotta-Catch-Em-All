@@ -16,3 +16,11 @@
 .\obj\welcome_screen.o: ..\peripherals\include\lcd_images.h
 .\obj\welcome_screen.o: ..\drivers\include\fonts.h
 .\obj\welcome_screen.o: C:\ProgramData\App-V\61A5EFCB-2A44-465D-90CC-A7A4A41DA0A8\D50B82DC-885B-4BF1-9479-31B1EC1F01B7\Root\ARM\ARMCC\bin\..\include\string.h
+.\obj\welcome_screen.o: ..\peripherals\include\ps2.h
+.\obj\welcome_screen.o: ..\drivers\include\adc.h
+.\obj\welcome_screen.o: ..\drivers\include\utils.h
+.\obj\welcome_screen.o: C:\AppV\mdk_510\ARM\PACK\Keil\TM4C_DFP\1.0.0\Device\Include\TM4C123\TM4C123.h
+.\obj\welcome_screen.o: ..\peripherals\include\eeprom.h
+.\obj\welcome_screen.o: ..\drivers\include\i2c.h
+.\obj\welcome_screen.o: ..\peripherals\include\launchpad_io.h
+.\obj\welcome_screen.o: ..\peripherals\include\mcp23017.h

@@ -1,8 +1,8 @@
 --cpu Cortex-M4.fp
 ".\obj\main.o"
-".\obj\utils.o"
 ".\obj\welcome_screen.o"
 ".\obj\pokemon_selection.o"
+".\obj\player_selection.o"
 ".\obj\adc.o"
 ".\obj\gpio_port.o"
 ".\obj\i2c.o"
@@ -13,6 +13,7 @@
 ".\obj\fonts.o"
 ".\obj\interrupts.o"
 ".\obj\wireless_driver.o"
+".\obj\utils.o"
 ".\obj\ece353_images.o"
 ".\obj\eeprom.o"
 ".\obj\ft6x06.o"

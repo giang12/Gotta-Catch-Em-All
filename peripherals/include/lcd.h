@@ -258,5 +258,7 @@ void lcd_config_gpio(void);
 *******************************************************************************/  
 void lcd_config_screen(void);
 
+
+void  lcd_write_data_u16(uint16_t y);
 #endif
 

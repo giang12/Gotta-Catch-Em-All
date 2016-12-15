@@ -25,10 +25,13 @@
 char individual_1[] = "Student 1: Giang Nguyen";
 char individual_2[] = "Student 2: Thomas Linden";
 char group[] = "Team Number: 27";
+
 uint8_t individual_1_id[]      = { 3,5,3,3,2};
 uint8_t individual_2_id[]  = { 3,5,3,3,3};
 
-volatile player ME = PLAYER_1;
+
+volatile player ME = PLAYER_1; //DEFAULT
+volatile pokemon MY_POKEMON = Pikachu; //DEFAULT
 
 bool isWirelessGood = false;
 
@@ -104,7 +107,7 @@ main(void)
 		if(ALERT_NEW_ADC){
 			ALERT_NEW_ADC = false;
 			if(sw_is_pressed(SW1_PIN)){
-				pokemon_selection_sceen();
+				select_pokemon_screen();
 				
 			}
 		}

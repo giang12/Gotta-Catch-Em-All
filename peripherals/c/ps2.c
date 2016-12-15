@@ -87,13 +87,6 @@ uint16_t ps2_get_y(void)
 }
 
 
-
-#define PRESS_DOWN 	1517 //if <
-#define PRESS_UP		3052 //if >
-
-#define PRESS_LEFT 3052 //if > 3052
-#define PRESS_RIGHT 1517 // if < 1017
-
 bool ps2_press_up(uint16_t y){
 	
 	return y > PRESS_UP_THRESH;

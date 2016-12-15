@@ -1,6 +1,18 @@
 #include "utils.h"
 
 
+void draw_line(uint16_t x0, uint16_t xf, uint16_t y0, uint16_t yf, uint32_t pen_color)
+{
+		uint32_t x,y;
+
+	for(x = x0; x < xf; x++){
+				for(y = y0; y < yf; y++){
+						lcd_set_pos(x ,x ,y, y);
+						lcd_write_data_u16(pen_color);
+				}
+			}
+}
+
 bool sw_is_pressed(uint8_t pin)
 {
 	
@@ -58,7 +70,97 @@ bool btn_is_pressed(uint8_t pin){
   }
 	//return !io_expander_read_pin(IO_EXPANDER_I2C_BASE, BTN_GPIO_BASE, pin); //1->not pressed, 0->pressed pullup
 }
+bool debounce_ps_press_up(void)
+{
+	
+  static uint16_t values = 0xFFFF;
+	
+  values = values << 1;
+ 
+	if(ps2_press_up(ps2_get_y()))
+  {
+    values |= 0x01;
+  }
 
+  if( values == 0xFFC0)
+  {
+    return true;
+  }
+  else
+  {
+    return false;
+  }
+  
+}
+
+bool debounce_ps_press_down(void)
+{
+	
+  static uint16_t values = 0xFFFF;
+
+  values = values << 1;
+ 
+	if(ps2_press_down(ps2_get_y()))
+  {
+    values |= 0x01;
+  }
+
+  if( values == 0xFFC0)
+  {
+    return true;
+  }
+  else
+  {
+    return false;
+  }
+  
+}
+
+bool debounce_ps_press_left(void)
+{
+	
+  static uint16_t values = 0xFFFF;
+	
+  values = values << 1;
+ 
+	if(ps2_press_left(ps2_get_x()))
+  {
+    values |= 0x01;
+  }
+
+  if( values == 0xFFC0)
+  {
+    return true;
+  }
+  else
+  {
+    return false;
+  }
+  
+}
+
+bool debounce_ps_press_right(void)
+{
+	
+  static uint16_t values = 0xFFFF;
+
+  values = values << 1;
+ 
+	if(ps2_press_right(ps2_get_x()))
+  {
+    values |= 0x01;
+  }
+
+  if( values == 0xFFC0)
+  {
+    return true;
+  }
+  else
+  {
+    return false;
+  }
+  
+}
 void eeprom_write_team_info(char  me[], char  you[], char  groupNum[])
 {
 	uint16_t addr;
