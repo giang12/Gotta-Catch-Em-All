@@ -22,22 +22,18 @@
 
 #include "main.h"
 
-typedef enum {
-  PLAYER_1,
-  PLAYER_2
-} player;
-
 char individual_1[] = "Student 1: Giang Nguyen";
 char individual_2[] = "Student 2: Thomas Linden";
 char group[] = "Team Number: 27";
 uint8_t individual_1_id[]      = { 3,5,3,3,2};
 uint8_t individual_2_id[]  = { 3,5,3,3,3};
 
-player me = PLAYER_2;
+volatile player ME = PLAYER_1;
 
 bool isWirelessGood = false;
 
-extern volatile bool ALERT_10MS;
+extern volatile bool ALERT_10MS; //animination timer flag
+extern volatile bool ALERT_NEW_ADC; //ADC flag
 
 void DisableInterrupts(void)
 {
@@ -70,6 +66,9 @@ void initialize_hardware(void)
 	lcd_config_gpio();
 	lcd_config_screen();
 	
+	ft6x06_init() ? printf("ft6x06_init successessfull \n\r") 
+								:	printf("ft6x06_init failed \n\r"); 
+	
 	lp_io_init(); //Configures the GPIO pins connected to the Launchpad LEDs and 2 push buttons
 	ps2_initialize();//PS2 Joystick
 	
@@ -95,16 +94,17 @@ main(void)
 	
 	eeprom_read_team_info();
 	
+	welcome_screen();
 	
   while(1){
 		
 		if(ALERT_10MS){
 			ALERT_10MS = false;
 		}
-		if(get_alert_adc()){
-			clear_alert_adc();
+		if(ALERT_NEW_ADC){
+			ALERT_NEW_ADC = false;
 			if(sw_is_pressed(SW1_PIN)){
-				selection_sceen();
+				pokemon_selection_sceen();
 				
 			}
 		}

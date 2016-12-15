@@ -58,12 +58,12 @@
 #define   PS2_X_ADC_CHANNEL  0
 #define   PS2_Y_ADC_CHANNEL  1
 
+#define PRESS_DOWN_THRESH 	1517 //if <
+#define PRESS_UP_THRESH		3052 //if >
 
+#define PRESS_LEFT_THRESH 3052 //if > 3052
+#define PRESS_RIGHT_THRESH 1517 // if < 1017
 
-static volatile uint16_t PS2_X_DATA;
-static volatile uint16_t PS2_Y_DATA;
-
-static volatile bool ALERT_NEW_ADC;
 /*******************************************************************************
 * Function Name: ps2_initialize
 ********************************************************************************
@@ -88,10 +88,11 @@ uint16_t ps2_get_x(void);
 ********************************************************************************/
 uint16_t ps2_get_y(void);
 
-bool get_alert_adc(void);
-void clear_alert_adc(void);
+bool ps2_press_up(uint16_t y);
+bool ps2_press_down(uint16_t y);
 
- void set_alert_adc(void);
+bool ps2_press_left(uint16_t x);
+bool ps2_press_right(uint16_t x);
 
 #endif
 

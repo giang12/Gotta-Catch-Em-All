@@ -31,7 +31,7 @@
 #include "driver_defines.h"
 
 #include "utils.h"
-#include "game_ui.h"
+#include "game_ui_define.h"
 
 #include "wireless_driver.h"
 #include "timers.h"
@@ -47,6 +47,7 @@
 #include "ps2.h"
 #include "eeprom.h"
 #include "mcp23017.h"
+#include "ft6x06.h"
 
 
 #endif

@@ -405,14 +405,14 @@
           <GroupName>src</GroupName>
           <Files>
             <File>
-              <FileName>interrupts.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\interrupts.c</FilePath>
-            </File>
-            <File>
               <FileName>main.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\main.c</FilePath>
+            </File>
+            <File>
+              <FileName>game_ui.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\game_ui.c</FilePath>
             </File>
             <File>
               <FileName>utils.c</FileName>
@@ -458,6 +458,16 @@
               <FileName>uart.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\drivers\c\uart.c</FilePath>
+            </File>
+            <File>
+              <FileName>fonts.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\drivers\c\fonts.c</FilePath>
+            </File>
+            <File>
+              <FileName>interrupts.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\drivers\c\interrupts.c</FilePath>
             </File>
           </Files>
         </Group>

@@ -1,13 +1,16 @@
-#include "game_ui.h"
+#include "game_ui_define.h"
 
-void selection_sceen(void)
+void pokemon_selection_sceen(void)
 {
 
-	char msg_out[] = "Choose your Pokemon!";
+  char msg_out[] = "Choose your Pokemon!";
 	char pika[] = P;
 	char squirt[] = S; 
 	char charm[] = C; 
+	
   // Reach infinite loop
+  while(1){
+		  
 	lcd_clear_screen(LCD_COLOR_BLACK );
   lcd_draw_image(
                   20,                 // X Pos
@@ -38,28 +41,33 @@ void selection_sceen(void)
                 );	
     lcd_print_string(
 									msg_out, 
-									19, 
+									19,
+                  0,									
 									LCD_COLOR_YELLOW, 
 									LCD_COLOR_BLACK 
 								);
     lcd_print_string(
 									pika, 
-									12, 
+									12,
+                  0,									
 									LCD_COLOR_YELLOW, 
 									LCD_COLOR_BLACK 
 								);
     lcd_print_string(
 									squirt, 
-									8, 
+									8,
+                  0, 									
 									LCD_COLOR_BLUE, 
 									LCD_COLOR_BLACK 
 								);								
     lcd_print_string(
 									charm, 
-									4, 
+									4,
+                  0, 									
 									LCD_COLOR_RED, 
 									LCD_COLOR_BLACK 
 								);
+	}
 }
 
 

@@ -1,7 +1,8 @@
 --cpu Cortex-M4.fp
 ".\obj\main.o"
-".\obj\game_ui.o"
 ".\obj\utils.o"
+".\obj\welcome_screen.o"
+".\obj\pokemon_selection.o"
 ".\obj\adc.o"
 ".\obj\gpio_port.o"
 ".\obj\i2c.o"

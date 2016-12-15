@@ -410,14 +410,24 @@
               <FilePath>.\main.c</FilePath>
             </File>
             <File>
-              <FileName>game_ui.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\game_ui.c</FilePath>
-            </File>
-            <File>
               <FileName>utils.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\utils.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>game_ui</GroupName>
+          <Files>
+            <File>
+              <FileName>game_ui.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\game_ui\c\game_ui.c</FilePath>
+            </File>
+            <File>
+              <FileName>welcome_screen.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\game_ui\c\welcome_screen.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -468,6 +478,11 @@
               <FileName>interrupts.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\drivers\c\interrupts.c</FilePath>
+            </File>
+            <File>
+              <FileName>wireless_driver.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\drivers\c\wireless_driver.c</FilePath>
             </File>
           </Files>
         </Group>

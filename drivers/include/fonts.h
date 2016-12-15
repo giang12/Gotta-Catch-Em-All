@@ -22,6 +22,7 @@ extern const uint8_t sitkaSmall_12ptBitmaps[];
 void lcd_print_string(
     char *msg, 
     int8_t line_num, 
+		uint16_t x_offset,
     uint16_t fg_color, 
     uint16_t bg_color
 );

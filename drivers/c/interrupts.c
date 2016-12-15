@@ -2,6 +2,7 @@
 
 extern volatile uint16_t PS2_X_DATA;
 extern volatile uint16_t PS2_Y_DATA;
+extern volatile bool ALERT_NEW_ADC;
 
 extern volatile bool WIRELESS_RX_ALERT;
 extern volatile WIRELESS_INFO wireless_info;
@@ -78,7 +79,7 @@ void ADC0SS2_Handler(void)
   // Clear the interrupt
   ADC0->ISC |= ADC_ISC_IN2;
   
-  set_alert_adc();
+  ALERT_NEW_ADC = true;
 }
 
 //*****************************************************************************

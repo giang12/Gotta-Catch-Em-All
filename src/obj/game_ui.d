@@ -1,5 +1,5 @@
-.\obj\game_ui.o: game_ui.c
-.\obj\game_ui.o: game_ui.h
+.\obj\game_ui.o: ..\game_ui\c\game_ui.c
+.\obj\game_ui.o: ..\game_ui\include\game_ui.h
 .\obj\game_ui.o: ..\peripherals\include\lcd.h
 .\obj\game_ui.o: C:\ProgramData\App-V\61A5EFCB-2A44-465D-90CC-A7A4A41DA0A8\D50B82DC-885B-4BF1-9479-31B1EC1F01B7\Root\ARM\ARMCC\bin\..\include\stdint.h
 .\obj\game_ui.o: ..\drivers\include\driver_defines.h

@@ -1728,7 +1728,8 @@ const uint8_t sitkaSmall_12ptBitmaps[] =
 #include <math.h>
 void lcd_print_string(
     char *msg, 
-    int8_t line_num, 
+    int8_t line_num,
+    uint16_t x_offset, 		
     uint16_t fg_color, 
     uint16_t bg_color
 )
@@ -1739,8 +1740,8 @@ void lcd_print_string(
 	int currRowLs = 0;          							  // Helps keep track of how many letters can be 
 																						  // printed per line.
 	int tableIndex = 0; 												// Indexes the lookup table
-	uint16_t x_start = ROWS-FONT_WIDTH;					// The x coordinate to draw at
 	uint16_t y_start = line_num * FONT_HEIGHT;  // The y coordinate to draw at
+	uint16_t x_start = ROWS-FONT_WIDTH - x_offset;					// The x coordinate to draw at
 	
 	// User cannot write to a line outside the boundaries 		
 	if (line_num > 19 || line_num < 0) {									
@@ -1776,7 +1777,7 @@ void lcd_print_string(
 				    continue;
 			   }
 			   currRowLs = 0;
-			   x_start = ROWS-FONT_WIDTH;
+			   x_start = ROWS-FONT_WIDTH - x_offset;
 		}
 		// Print the current string
 		while ((*msg != *currStrEnd || isSpaceString) && write) {
@@ -1801,7 +1802,7 @@ void lcd_print_string(
 					continue;
 				}
 				currRowLs = 0;
-				x_start = ROWS-FONT_WIDTH;
+				x_start = ROWS-FONT_WIDTH - x_offset;
 			}
 			// If we had a space string, we only run loop once. So fix vars to break loop
 			if (isSpaceString) {														

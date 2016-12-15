@@ -23,10 +23,10 @@
 #include "ps2.h"
 
 
-static volatile uint16_t PS2_X_DATA = 0;
-static volatile uint16_t PS2_Y_DATA = 0;
+volatile uint16_t PS2_X_DATA = 0;
+volatile uint16_t PS2_Y_DATA = 0;
 
-static volatile bool ALERT_NEW_ADC = false;
+volatile bool ALERT_NEW_ADC = false;
 /*******************************************************************************
 * Function Name: initialize_adc_gpio_pins
 ********************************************************************************
@@ -86,18 +86,29 @@ uint16_t ps2_get_y(void)
     return PS2_Y_DATA;
 }
 
-bool get_alert_adc(void)
-{
-	return ALERT_NEW_ADC;
-}
-
-void clear_alert_adc(void)
-{
-	ALERT_NEW_ADC = false;
-}
 
 
-void set_alert_adc(void)
-{
-	ALERT_NEW_ADC = true;
+#define PRESS_DOWN 	1517 //if <
+#define PRESS_UP		3052 //if >
+
+#define PRESS_LEFT 3052 //if > 3052
+#define PRESS_RIGHT 1517 // if < 1017
+
+bool ps2_press_up(uint16_t y){
+	
+	return y > PRESS_UP_THRESH;
 }
+bool ps2_press_down(uint16_t y){
+	
+	return y < PRESS_DOWN_THRESH;
+}
+
+bool ps2_press_left(uint16_t x){
+	
+	return x > PRESS_LEFT_THRESH;
+}
+bool ps2_press_right(uint16_t x){
+	
+	return x < PRESS_RIGHT_THRESH;
+}
+
