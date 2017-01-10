@@ -1,5 +1,7 @@
 # Gotta-Catch-Em-All
 
+[![Alt text](https://img.youtube.com/vi/no7Uo3rOREQ/0.jpg)](https://www.youtube.com/watch?v=no7Uo3rOREQ)
+
 ### ADC0 - PS2 Joystick
 Configure ADC0 to convert the X and Y directions of the PS2 Joystick using Sample Sequencer #2. ADC0 conversion are trigged using Timer0A interrupts.
 
